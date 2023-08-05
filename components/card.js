@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function Card(props) {
   return (
@@ -13,13 +14,13 @@ export default function Card(props) {
           {props.details}
         </p>
       </div>
-      <div className='mt-4 flex gap-4'>
-        <button className='bg-green-600 text-white p-3 w-1/2 rounded hover:bg-green-700'>
+      <div className='mt-4 flex gap-4 text-center'>
+        <Link href={props.decode} className='bg-green-600 text-white p-3 w-1/2 rounded hover:bg-green-700'>
           Decode
-        </button>
-        <button className='bg-green-600 text-white p-3 w-1/2 rounded hover:bg-green-700'>
+        </Link>
+        <Link href={props.encode} className='bg-green-600 text-white p-3 w-1/2 rounded hover:bg-green-700'>
           Encode
-        </button>
+        </Link>
       </div>
     </div>
   );

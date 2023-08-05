@@ -11,4 +11,9 @@ main {
   padding-top: 60px;
   min-height: 100vh;
   color: white;
+  background-color: #1b1b32;
+}
+
+.nav {
+  background-color: #4949a7;
 }
