@@ -80,13 +80,13 @@ export default function Home() {
                         href={cipher.decode}
                         className='bg-green-600 text-white p-3 w-1/2 rounded hover:bg-green-700'
                       >
-                        Decode
+                        Decrypt
                       </Link>
                       <Link
                         href={cipher.encode}
                         className='bg-green-600 text-white p-3 w-1/2 rounded hover:bg-green-700'
                       >
-                        Encode
+                        Encrypt
                       </Link>
                     </>
                   ) : (
