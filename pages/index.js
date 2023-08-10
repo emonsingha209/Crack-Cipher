@@ -14,8 +14,8 @@ const cipherData = [
     name: 'Monoalphabetic Cipher',
     details:
       'A substitution cipher where each letter in the plaintext is replaced by a fixed letter in the ciphertext, using a 26-letter mapping.',
-    decode: '/caesar/decode',
-    encode: '/caesar/decode',
+    decode: '/monoalphabetic/decode',
+    encode: '/monoalphabetic/decode',
   },
   {
     name: 'Playfair Cipher',
@@ -73,7 +73,8 @@ export default function Home() {
                   <p className='text-sm text-gray-600'>{cipher.details}</p>
                 </div>
                 <div className='mt-4 flex gap-4 text-center'>
-                  {cipher.name === 'Caesar Cipher' ? (
+                  {cipher.name === 'Caesar Cipher' ||
+                  cipher.name === 'Monoalphabetic Cipher' ? (
                     <>
                       <Link
                         href={cipher.decode}

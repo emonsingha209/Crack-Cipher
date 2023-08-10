@@ -3,52 +3,50 @@ import NavBar from '@/components/navbar';
 import Header from '@/components/header';
 import BackButton from '@/components/backButton';
 
-export default function encode() {
+export default function encodeMonoalphabetic() {
   const [plaintext, setPlaintext] = useState('');
-  const [shift, setShift] = useState('');
+  const [key, setKey] = useState('');
   const [ciphertext, setCiphertext] = useState(null);
   const [error, setError] = useState(null);
 
-  function convert(text, shift) {
-    const asciiCodes = [];
+  const defaultAlphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+  function convert(text, key) {
+    const encryptedText = [];
     for (let i = 0; i < text.length; i++) {
       const char = text[i];
-      let shiftedValue;
-      const asciiCode = char.charCodeAt(0);
-      if (asciiCode >= 65 && asciiCode <= 90) {
-        shiftedValue = ((parseInt(asciiCode) - 65 + parseInt(shift)) % 26) + 65;
-      } else if (asciiCode >= 48 && asciiCode <= 57) {
-        shiftedValue = ((parseInt(asciiCode) - 48 + parseInt(shift)) % 10) + 48;
+      const index = defaultAlphabet.indexOf(char);
+
+      if (index !== -1) {
+        const encryptedChar = key[index];
+        encryptedText.push(encryptedChar);
       } else {
-        shiftedValue = asciiCode;
+        encryptedText.push(char);
       }
-      asciiCodes.push(shiftedValue);
     }
-
-    let alphabet = '';
-    for (let i = 0; i < asciiCodes.length; i++) {
-      const char = String.fromCharCode(asciiCodes[i]);
-      alphabet += char;
-    }
-
-    return alphabet;
+    return encryptedText;
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!plaintext || !shift) {
-      setError('Input Field cannot be empty');
+    if (!plaintext || !key) {
+      setError('Input fields cannot be empty');
+      return;
+    } else if (key.length !== 26) {
+      setError('Key should be exactly 26 characters long');
       return;
     } else {
       setError('');
     }
-    const result = convert(plaintext.toUpperCase(), shift);
+
+    const result = convert(plaintext.toLowerCase(), key);
     setCiphertext(result);
   };
+
   return (
     <>
-      <Header title='Caesar Cipher Encode | Crack Cipher' />
-      <NavBar title='Caesar Cipher Encryption' />
+      <Header title='Monoalphabetic Cipher Encode | Crack Cipher' />
+      <NavBar title='Monoalphabetic Cipher Encryption' />
       <main className='h-auto'>
         <div className='flex flex-col items-center mt-16 h-full px-4'>
           <div className='w-full md:w-3/5 p-4 bg-gray-800 rounded-lg shadow-md text-center text-white'>
@@ -64,11 +62,11 @@ export default function encode() {
                 />
               </label>
               <label className='flex flex-col gap-2 text-left text-xl'>
-                Shift:
+                Key (26 characters):
                 <input
-                  type='number'
-                  value={shift}
-                  onChange={(e) => setShift(e.target.value)}
+                  type='text'
+                  value={key}
+                  onChange={(e) => setKey(e.target.value)}
                   className='p-2 border rounded-lg text-black'
                 />
               </label>
