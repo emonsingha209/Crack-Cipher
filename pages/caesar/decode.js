@@ -63,7 +63,7 @@ export default function DecodePage() {
       <Header title='Caesar Cipher Encode | Crack Cipher' />
       <NavBar title='Caesar Cipher Decryption' />
       <main className='h-auto'>
-        <div className='flex flex-col items-center mt-8 md:mt-16 h-full px-4'>
+        <div className='flex flex-col items-center mt-16 h-full px-4'>
           <div className='w-full md:w-3/5 p-4 bg-gray-800 rounded-lg shadow-md text-center text-white'>
             <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
               {error && <p className='mb-4 text-red-500'>{error}</p>}
