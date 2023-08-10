@@ -54,7 +54,7 @@ export default function encode() {
           <div className='w-full md:w-3/5 p-4 bg-gray-800 rounded-lg shadow-md text-center text-white'>
             <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
               {error && <p className='mb-4 text-red-500'>{error}</p>}
-              <label className='flex flex-col gap-2 text-left'>
+              <label className='flex flex-col gap-2 text-left text-xl'>
                 Plaintext:
                 <textarea
                   value={plaintext}
@@ -63,7 +63,7 @@ export default function encode() {
                   rows='3'
                 />
               </label>
-              <label className='flex flex-col gap-2 text-left'>
+              <label className='flex flex-col gap-2 text-left text-xl'>
                 Shift:
                 <input
                   type='number'

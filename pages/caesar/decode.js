@@ -67,7 +67,7 @@ export default function DecodePage() {
           <div className='w-full md:w-3/5 p-4 bg-gray-800 rounded-lg shadow-md text-center text-white'>
             <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
               {error && <p className='mb-4 text-red-500'>{error}</p>}
-              <label className='flex flex-col gap-2 text-left'>
+              <label className='flex flex-col gap-2 text-left text-xl'>
                 Cipherext:
                 <textarea
                   value={ciphertext}
@@ -76,7 +76,7 @@ export default function DecodePage() {
                   rows='3'
                 />
               </label>
-              <label className='flex flex-col gap-2 text-left'>
+              <label className='flex flex-col gap-2 text-left text-xl'>
                 Shift: (If shift key unknown, leave as shift key 0. Check one or
                 two words for shift key discovery.)
                 <input
