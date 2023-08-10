@@ -1,12 +1,12 @@
-import React from 'react'
-import Head from 'next/head'
+import React from 'react';
+import Head from 'next/head';
 
 export default function Header(props) {
   return (
     <>
-    <Head>
+      <Head>
         <title>{props.title}</title>
-    </Head>
+      </Head>
     </>
-  )
+  );
 }
