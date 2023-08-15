@@ -19,7 +19,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className='mt-4 text-center'>
-                  <p className='text-sm text-gray-600'>{cipher.details}</p>
+                  <p className='text-sm text-gray-800'>{cipher.details}</p>
                 </div>
                 <div className='mt-4 flex gap-4 text-center'>
                   {cipher.name === 'Caesar Cipher' ||
@@ -27,19 +27,19 @@ export default function Home() {
                     <>
                       <Link
                         href={cipher.decode}
-                        className='bg-green-600 text-white p-3 w-1/2 rounded hover:bg-green-700'
+                        className='bg-blue-800 text-white p-3 w-1/2 rounded hover:bg-blue-900'
                       >
                         Decrypt
                       </Link>
                       <Link
                         href={cipher.encode}
-                        className='bg-green-600 text-white p-3 w-1/2 rounded hover:bg-green-700'
+                        className='bg-blue-800 text-white p-3 w-1/2 rounded hover:bg-blue-900'
                       >
                         Encrypt
                       </Link>
                     </>
                   ) : (
-                    <p className='bg-green-600 p-3 w-full rounded'>
+                    <p className='bg-blue-800 p-3 w-full rounded'>
                       Under Development
                     </p>
                   )}
